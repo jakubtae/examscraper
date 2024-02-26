@@ -6,15 +6,11 @@
   "content_scripts": [
     {
       "js": ["test.js"],
-      "matches": [
-        "https://egzamin-informatyk.pl/testy-inf03-ee09-programowanie-bazy-danych/"
-      ]
+      "matches": ["https://example.com/test-site"]
     },
     {
       "js": ["answers.js"],
-      "matches": [
-        "https://egzamin-informatyk.pl/odpowiedzi-inf03-ee09-programowanie-bazy-danych/"
-      ]
+      "matches": ["https://example.com/answers-site"]
     }
   ]
 }

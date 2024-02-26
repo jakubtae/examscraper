@@ -32,17 +32,17 @@ const shit = [];
 // Define an async function to use await inside forEach
 const processElements = async () => {
   for (const ele of array) {
-    if (ele.className === "trescE") {
+    if (ele.className === "question") {
       shit.push({
         type: "Q",
         value: ele.innerText.substring(3).trim(),
       });
-    } else if (ele.className === "odpgood") {
+    } else if (ele.className === "correct_answer") {
       shit.push({
         type: "A",
         value: ele.innerText.substring(3).trim(),
       });
-    } else if (ele.className === "obrazek") {
+    } else if (ele.className === "image") {
       const imageSrc = ele.firstChild.attributes.src.value;
       try {
         const imageBlob = await downloadImage(imageSrc);
@@ -102,9 +102,7 @@ async function sendDataToServer(data) {
     const responseData = await response.json();
     console.log(responseData);
     if (responseData.number < 1045) {
-      var els = document.querySelectorAll(
-        "a[href='../testy-inf03-ee09-programowanie-bazy-danych']"
-      );
+      var els = document.querySelectorAll("a[href='../test-site']");
       els[0].click();
     }
   } catch (error) {

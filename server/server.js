@@ -9,10 +9,6 @@ const app = Express();
 app.use(cors());
 app.use(Express.json({ limit: "50mb" }));
 
-app.get("/", async (req, res) => {
-  return res.json("Hello World");
-});
-
 app.post("/", async (req, res) => {
   const entryDocuments = await Tasks.countDocuments();
   const tasks = req.body; // No need for [...req.body], as it's already an array
