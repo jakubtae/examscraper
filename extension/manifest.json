@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Hello Extensions",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "js": ["test.js"],
+      "matches": [
+        "https://egzamin-informatyk.pl/testy-inf03-ee09-programowanie-bazy-danych/"
+      ]
+    },
+    {
+      "js": ["answers.js"],
+      "matches": [
+        "https://egzamin-informatyk.pl/odpowiedzi-inf03-ee09-programowanie-bazy-danych/"
+      ]
+    }
+  ]
+}
