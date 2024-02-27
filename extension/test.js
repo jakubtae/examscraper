@@ -1,3 +1,3 @@
 window.onbeforeunload = null;
-const button = document.querySelector("#sprawdz");
+const button = document.querySelector("#form_submit");
 button.click();

@@ -37,9 +37,14 @@ const processElements = async () => {
         type: "Q",
         value: ele.innerText.substring(3).trim(),
       });
-    } else if (ele.className === "correct_answer") {
+    } else if (ele.className === "odpgood") {
       shit.push({
-        type: "A",
+        type: "C",
+        value: ele.innerText.substring(3).trim(),
+      });
+    } else if (ele.className === "odpbad") {
+      shit.push({
+        type: "W",
         value: ele.innerText.substring(3).trim(),
       });
     } else if (ele.className === "image") {
@@ -74,16 +79,14 @@ function groupElements(data) {
   data.forEach((item) => {
     if (item.type === "Q") {
       // If it's a question, start a new group
-      currentGroup = { Q: item.value };
+      currentGroup = { Q: item.value, A: [] };
       groupedData.push(currentGroup);
-    } else if (item.type === "A") {
-      // If it's an answer, add it to the current group
-      currentGroup.A = item.value;
+    } else if (item.type === "C" || item.type === "W") {
+      // If it's an answer, add it to the current group's answers array (A)
+      currentGroup.A.push({ [item.type]: item.value });
     } else if (item.type === "I") {
-      // If it's an image, add it to the current group if it exists
-      if (currentGroup) {
-        currentGroup.I = item.value;
-      }
+      // If it's an image, add it to the current group's image field (I)
+      currentGroup.I = item.value;
     }
   });
 
